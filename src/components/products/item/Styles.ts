@@ -39,23 +39,4 @@ export const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     title: { marginBottom: 3 },
-    properties: {
-        flex: 1,
-        flexDirection: 'row',
-        alignItems: 'flex-start',
-        justifyContent: 'space-between',
-    },
-    property: {
-        width: '30%',
-    },
-    textBold: {
-        fontWeight: 'bold',
-    },
-    oldPrice: {
-        color: '#8f8f8f',
-        textDecorationLine: 'line-through',
-    },
-    discount: {
-        color: '#00A8F3',
-    },
 });

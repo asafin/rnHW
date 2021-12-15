@@ -1,7 +1,9 @@
 import React from 'react';
-import { ImageBackground, Image, Text, View } from 'react-native';
+import { ImageBackground, Text, View } from 'react-native';
+import { ProductPrice } from '../price/ProductPrice';
 import { styles } from './Styles';
 
+// eslint-disable-next-line @typescript-eslint/no-var-requires
 const staticImage = require('./../../../assets/images/product.png');
 
 export const ProductItem: React.FC = () => {
@@ -11,11 +13,7 @@ export const ProductItem: React.FC = () => {
                 <ImageBackground source={staticImage} style={styles.image} />
             </View>
             <Text style={styles.title}>Xiaomi Mi A3</Text>
-            <View style={styles.properties}>
-                <Text style={[styles.property, styles.textBold]}>$222</Text>
-                <Text style={[styles.property, styles.textBold, styles.oldPrice]}>$244</Text>
-                <Text style={[styles.property, styles.textBold, styles.discount]}>9% OFF</Text>
-            </View>
+            <ProductPrice />
         </View>
     );
 };
