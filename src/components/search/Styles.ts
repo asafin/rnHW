@@ -9,6 +9,7 @@ export const styles = StyleSheet.create({
         borderBottomColor: '#8F8F8F',
         borderBottomWidth: 0.5,
         alignSelf: 'stretch',
+        maxHeight: 70,
     },
     boxShadow: {
         shadowColor: '#000000',

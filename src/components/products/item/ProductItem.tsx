@@ -1,19 +1,20 @@
 import React from 'react';
 import { ImageBackground, Text, View } from 'react-native';
 import { ProductPrice } from '../price/ProductPrice';
+import { IProductItemProps } from './ProductItem.props';
 import { styles } from './Styles';
 
-// eslint-disable-next-line @typescript-eslint/no-var-requires
-const staticImage = require('./../../../assets/images/product.png');
-
-export const ProductItem: React.FC = () => {
+export const ProductItem: React.FC<IProductItemProps> = (props) => {
+    const {
+        item: { displayPrice, imageUrl, name },
+    } = props;
     return (
         <View style={[styles.container, styles.boxShadow]}>
             <View style={styles.imageWrapper}>
-                <ImageBackground source={staticImage} style={styles.image} />
+                <ImageBackground source={{ uri: imageUrl }} style={styles.image} />
             </View>
-            <Text style={styles.title}>Xiaomi Mi A3</Text>
-            <ProductPrice />
+            <Text style={styles.title}>{name}</Text>
+            <ProductPrice displayPrice={displayPrice} />
         </View>
     );
 };

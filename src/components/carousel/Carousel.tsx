@@ -5,7 +5,7 @@ import { styles } from './Styles';
 import Swiper from 'react-native-web-swiper';
 import { CarouselBtn } from './nav/CarouselBtn';
 
-export const Carousel: React.FC<CarouselProps> = ({ style }) => {
+export const Carousel: React.FC<CarouselProps> = ({ style, imagesUrl }) => {
     return (
         <View style={[style, styles.container]}>
             <Swiper
@@ -18,15 +18,11 @@ export const Carousel: React.FC<CarouselProps> = ({ style }) => {
                     NextComponent: ({ onPress }) => <CarouselBtn variant="next" onPress={onPress} />,
                 }}
             >
-                <View style={styles.slideContainer}>
-                    <Image source={require('./../../assets/images/productDetailsImg.png')} style={styles.image} />
-                </View>
-                <View style={styles.slideContainer}>
-                    <Image source={require('./../../assets/images/productDetailsImg.png')} style={styles.image} />
-                </View>
-                <View style={styles.slideContainer}>
-                    <Image source={require('./../../assets/images/productDetailsImg.png')} style={styles.image} />
-                </View>
+                {imagesUrl.map((uri) => (
+                    <View style={styles.slideContainer}>
+                        <Image source={{ uri }} style={styles.image} key={uri} />
+                    </View>
+                ))}
             </Swiper>
         </View>
     );
