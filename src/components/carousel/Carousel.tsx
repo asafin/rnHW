@@ -19,7 +19,7 @@ export const Carousel: React.FC<CarouselProps> = ({ style, imagesUrl }) => {
                 }}
             >
                 {imagesUrl.map((uri) => (
-                    <View style={styles.slideContainer}>
+                    <View style={styles.slideContainer} key={uri}>
                         <Image source={{ uri }} style={styles.image} key={uri} />
                     </View>
                 ))}

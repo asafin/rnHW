@@ -21,8 +21,10 @@ export const ProductDetails: React.FC = () => {
     const renderProduct = () => (
         <View style={styles.container}>
             <View style={styles.productWrapper}>
-                <ScrollView contentInsetAdjustmentBehavior="automatic">
-                    <RefreshControl refreshing={dataIsLoading} onRefresh={refresh} />
+                <ScrollView
+                    contentInsetAdjustmentBehavior="automatic"
+                    refreshControl={<RefreshControl refreshing={dataIsLoading} onRefresh={refresh} />}
+                >
                     <View style={styles.ph20}>
                         <Carousel style={styles.carousel} imagesUrl={(product as ProductItemRenderModel).imagesUrl} />
                         <Typography variant="p" style={styles.title}>

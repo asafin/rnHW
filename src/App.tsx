@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
-//import { Main } from './screens/main/Main';
-import { ProductDetails } from './screens/productDetails/ProductDetails';
+import { Main } from './screens/main/Main';
+//import { ProductDetails } from './screens/productDetails/ProductDetails';
 
 const styles = StyleSheet.create({
     container: {
@@ -14,8 +14,8 @@ export const App = () => {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar />
-            {/* <Main /> */}
-            <ProductDetails />
+            <Main />
+            {/* <ProductDetails /> */}
         </SafeAreaView>
     );
 };

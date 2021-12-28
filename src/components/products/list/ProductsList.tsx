@@ -1,16 +1,12 @@
 import React from 'react';
-import { RefreshControl, View } from 'react-native';
-import { useGetProductsList } from '../../../hooks/products/useGetProductsList';
-import { Loader } from '../../loader/Loader';
+import { View } from 'react-native';
 import { ProductItem } from '../item/ProductItem';
+import { ProductsListProps } from './ProductsList.props';
 import { styles } from './Styles';
 
-export const ProductsList: React.FC = () => {
-    const { dataIsLoading, productsList, refresh } = useGetProductsList(1, 10);
-
-    const renderList = () => (
+export const ProductsList: React.FC<ProductsListProps> = ({ productsList }) => {
+    return (
         <View style={styles.container}>
-            <RefreshControl refreshing={dataIsLoading} onRefresh={refresh} />
             <View style={styles.list}>
                 {productsList.map((item) => (
                     <ProductItem item={item} key={item.id} />
@@ -18,6 +14,4 @@ export const ProductsList: React.FC = () => {
             </View>
         </View>
     );
-
-    return dataIsLoading ? <Loader /> : renderList();
 };
