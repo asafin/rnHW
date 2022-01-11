@@ -1,10 +1,10 @@
 import React from 'react';
 import { createStackNavigator } from '@react-navigation/stack';
-import { Main } from '../../screens/main/Main';
 import { ProductDetails } from '../../screens/productDetails/ProductDetails';
+import DrawerNavigator from '../DrawerNavigator';
 
 export type MainStackParamList = {
-    Main: undefined;
+    MainDrawer: undefined;
     ProductDetails: { productId: number };
 };
 
@@ -12,8 +12,8 @@ const MainStack = createStackNavigator<MainStackParamList>();
 
 const MainStackNavigator = () => {
     return (
-        <MainStack.Navigator initialRouteName="Main">
-            <MainStack.Screen name="Main" component={Main} options={{ headerShown: false }} />
+        <MainStack.Navigator initialRouteName="MainDrawer">
+            <MainStack.Screen name="MainDrawer" component={DrawerNavigator} options={{ headerShown: false }} />
             <MainStack.Screen name="ProductDetails" component={ProductDetails} />
         </MainStack.Navigator>
     );

@@ -2,6 +2,7 @@ import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import MainStackNavigator from './navigation/stack-navigators/MainStackNavigator';
+//import DrawerNavigator from './navigation/DrawerNavigator';
 const styles = StyleSheet.create({
     container: {
         backgroundColor: '#ffffff',
