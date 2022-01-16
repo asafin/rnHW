@@ -1,20 +1,43 @@
 import React from 'react';
-import { createStackNavigator } from '@react-navigation/stack';
+import { createStackNavigator, StackNavigationOptions } from '@react-navigation/stack';
 import { ProductDetails } from '../../screens/productDetails/ProductDetails';
+import { ProductAdded } from '../../screens/productAdded/ProductAdded';
 import DrawerNavigator from '../DrawerNavigator';
+import { SelectColor } from '../../screens/selectColor/SelectColor';
+import { LoginToContinue } from '../../screens/loginToContinue/LoginToContinue';
+import { MyCart } from '../../screens/myCart/MyCart';
+import { cartIcon, customScreenOptions } from '../options';
 
 export type MainStackParamList = {
     MainDrawer: undefined;
     ProductDetails: { productId: number };
+    ProductAdded: undefined;
+    SelectColor: undefined;
+    LoginToContinue: undefined;
+    MyCart: undefined;
 };
 
 const MainStack = createStackNavigator<MainStackParamList>();
 
 const MainStackNavigator = () => {
     return (
-        <MainStack.Navigator initialRouteName="MainDrawer">
-            <MainStack.Screen name="MainDrawer" component={DrawerNavigator} options={{ headerShown: false }} />
-            <MainStack.Screen name="ProductDetails" component={ProductDetails} />
+        <MainStack.Navigator initialRouteName="MainDrawer" screenOptions={customScreenOptions as StackNavigationOptions}>
+            <MainStack.Group>
+                <MainStack.Screen name="MainDrawer" component={DrawerNavigator} options={{ headerShown: false }} />
+                <MainStack.Screen
+                    name="ProductDetails"
+                    component={ProductDetails}
+                    options={({ navigation }) => ({
+                        headerRight: () => cartIcon(navigation),
+                    })}
+                />
+                <MainStack.Screen name="MyCart" component={MyCart} options={{ headerTitle: 'My Cart' }} />
+            </MainStack.Group>
+            <MainStack.Group>
+                <MainStack.Screen name="ProductAdded" component={ProductAdded} options={{ headerShown: false }} />
+                <MainStack.Screen name="SelectColor" component={SelectColor} options={{ headerShown: false }} />
+                <MainStack.Screen name="LoginToContinue" component={LoginToContinue} options={{ headerShown: false }} />
+            </MainStack.Group>
         </MainStack.Navigator>
     );
 };

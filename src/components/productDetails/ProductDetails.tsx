@@ -27,9 +27,7 @@ export const ProductDetails: React.FC = () => {
         });
     }, [navigation, product]);
 
-    const handleBtnPress = () => {
-        console.log('onPress');
-    };
+    const handleBtnPress = () => navigation.navigate('LoginToContinue');
 
     const renderProduct = () => (
         <View style={styles.container}>
