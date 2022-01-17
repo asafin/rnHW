@@ -1,4 +1,4 @@
-interface AuthState {
+export interface AuthState {
     userToken: string | null;
     isLoading: boolean;
     isSignout: boolean;
