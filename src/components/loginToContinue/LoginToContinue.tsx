@@ -9,7 +9,6 @@ import { Card } from '../card/Card';
 export const LoginToContinue: React.FC = () => {
     const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
 
-    const handleBtnPress = () => navigation.goBack();
     return (
         <View style={styles.container}>
             <Card
@@ -17,8 +16,8 @@ export const LoginToContinue: React.FC = () => {
                 title="Login To Continue"
                 description="Please login to add product in your cart"
                 btns={[
-                    { title: 'Login', onPress: handleBtnPress },
-                    { title: 'Sign Up', onPress: handleBtnPress },
+                    { title: 'Login', onPress: () => navigation.navigate('Login') },
+                    { title: 'Sign Up', onPress: () => navigation.navigate('SignUp') },
                 ]}
             />
         </View>

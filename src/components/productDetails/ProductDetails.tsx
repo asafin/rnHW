@@ -22,9 +22,11 @@ export const ProductDetails: React.FC = () => {
     const { dataIsLoading, refresh, product } = useGetProduct(route.params.productId);
 
     useEffect(() => {
-        navigation.setOptions({
-            title: product && product.name ? product.name : 'Product Details',
-        });
+        if (product?.name) {
+            navigation.setOptions({
+                title: product.name,
+            });
+        }
     }, [navigation, product]);
 
     const handleBtnPress = () => navigation.navigate('LoginToContinue');

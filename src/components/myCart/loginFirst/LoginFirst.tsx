@@ -11,7 +11,7 @@ import { TouchableOpacity } from 'react-native-gesture-handler';
 export const LoginFirst: React.FC = () => {
     const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
 
-    const handleBtnPress = () => navigation.navigate('MainDrawer');
+    const handleBtnPress = () => navigation.navigate('Login');
     const handleLinkPress = () => navigation.navigate('MainDrawer');
 
     return (

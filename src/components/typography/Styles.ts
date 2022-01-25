@@ -1,6 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
+    h1: {
+        color: '#00A8F3',
+        fontWeight: 'bold',
+        fontSize: 30,
+        lineHeight: 35,
+    },
     h2: {
         color: '#8F8F8F',
         fontWeight: 'bold',

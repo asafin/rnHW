@@ -7,6 +7,8 @@ import { SelectColor } from '../../screens/selectColor/SelectColor';
 import { LoginToContinue } from '../../screens/loginToContinue/LoginToContinue';
 import { MyCart } from '../../screens/myCart/MyCart';
 import { cartIcon, customScreenOptions } from '../options';
+import { Login } from '../../screens/login/Login';
+import { SignUp } from '../../screens/signUp/SignUp';
 
 export type MainStackParamList = {
     MainDrawer: undefined;
@@ -14,6 +16,8 @@ export type MainStackParamList = {
     ProductAdded: undefined;
     SelectColor: undefined;
     LoginToContinue: undefined;
+    Login: undefined;
+    SignUp: undefined;
     MyCart: undefined;
 };
 
@@ -29,14 +33,21 @@ const MainStackNavigator = () => {
                     component={ProductDetails}
                     options={({ navigation }) => ({
                         headerRight: () => cartIcon(navigation),
+                        title: 'Product Details',
                     })}
                 />
                 <MainStack.Screen name="MyCart" component={MyCart} options={{ headerTitle: 'My Cart' }} />
             </MainStack.Group>
-            <MainStack.Group>
-                <MainStack.Screen name="ProductAdded" component={ProductAdded} options={{ headerShown: false }} />
-                <MainStack.Screen name="SelectColor" component={SelectColor} options={{ headerShown: false }} />
-                <MainStack.Screen name="LoginToContinue" component={LoginToContinue} options={{ headerShown: false }} />
+            <MainStack.Group
+                screenOptions={() => ({
+                    headerShown: false,
+                })}
+            >
+                <MainStack.Screen name="ProductAdded" component={ProductAdded} />
+                <MainStack.Screen name="SelectColor" component={SelectColor} />
+                <MainStack.Screen name="LoginToContinue" component={LoginToContinue} />
+                <MainStack.Screen name="Login" component={Login} />
+                <MainStack.Screen name="SignUp" component={SignUp} />
             </MainStack.Group>
         </MainStack.Navigator>
     );

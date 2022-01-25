@@ -8,7 +8,6 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 32,
         borderRadius: 4,
         elevation: 3,
-        backgroundColor: '#008ACE',
         width: '100%',
     },
     text: {
@@ -17,5 +16,11 @@ export const styles = StyleSheet.create({
         fontWeight: '500',
         color: 'white',
         textTransform: 'uppercase',
+    },
+    primary: {
+        backgroundColor: '#008ACE',
+    },
+    secondary: {
+        backgroundColor: '#8F8F8F',
     },
 });

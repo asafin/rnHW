@@ -4,7 +4,7 @@ import { ProductDetails } from '../../screens/productDetails/ProductDetails';
 import { WishList } from '../../screens/wishList/WishList';
 
 export type WishListStackParamList = {
-    WishList: undefined;
+    WishListStack: undefined;
     ProductDetails: { productId: number };
 };
 
@@ -13,12 +13,12 @@ const WishListStack = createStackNavigator<WishListStackParamList>();
 const WishListStackNavigator = () => {
     return (
         <WishListStack.Navigator
-            initialRouteName="WishList"
+            initialRouteName="WishListStack"
             screenOptions={{
                 headerShown: false,
             }}
         >
-            <WishListStack.Screen name="WishList" component={WishList} options={{ title: 'My Wish List' }} />
+            <WishListStack.Screen name="WishListStack" component={WishList} options={{ title: 'My Wish List' }} />
             <WishListStack.Screen name="ProductDetails" component={ProductDetails} />
         </WishListStack.Navigator>
     );

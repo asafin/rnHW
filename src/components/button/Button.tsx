@@ -4,10 +4,13 @@ import { ButtonProps } from './Button.props';
 import { styles } from './Styles';
 
 export const Button: React.FC<ButtonProps> = (props) => {
-    const { title, onPress } = props;
+    const { title, onPress, variant = 'primary' } = props;
 
     return (
-        <Pressable style={styles.button} onPress={onPress}>
+        <Pressable
+            style={[styles.button, variant === 'primary' && styles.primary, variant === 'secondary' && styles.secondary]}
+            onPress={onPress}
+        >
             <Text style={styles.text}>{title}</Text>
         </Pressable>
     );
