@@ -1,7 +1,9 @@
 import React from 'react';
 import { SafeAreaView, StatusBar, StyleSheet } from 'react-native';
-import { Main } from './screens/main/Main';
-//import { ProductDetails } from './screens/productDetails/ProductDetails';
+import { NavigationContainer } from '@react-navigation/native';
+import MainStackNavigator from './navigation/stack-navigators/MainStackNavigator';
+
+import { AuthContextProvider } from './context/auth.context';
 
 const styles = StyleSheet.create({
     container: {
@@ -14,8 +16,11 @@ export const App = () => {
     return (
         <SafeAreaView style={styles.container}>
             <StatusBar />
-            <Main />
-            {/* <ProductDetails /> */}
+            <NavigationContainer>
+                <AuthContextProvider>
+                    <MainStackNavigator />
+                </AuthContextProvider>
+            </NavigationContainer>
         </SafeAreaView>
     );
 };

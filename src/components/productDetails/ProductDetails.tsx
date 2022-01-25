@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { RefreshControl, ScrollView, View } from 'react-native';
 import { Button } from '../../components/button/Button';
 import { Carousel } from '../../components/carousel/Carousel';
@@ -11,12 +11,25 @@ import { Loader } from '../loader/Loader';
 import { ProductPrice } from '../products/price/ProductPrice';
 import { styles } from './Styles';
 
-export const ProductDetails: React.FC = () => {
-    const { dataIsLoading, refresh, product } = useGetProduct(1);
+import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { MainStackParamList } from '../../navigation/stack-navigators/MainStackNavigator';
+import { StackNavigationProp } from '@react-navigation/stack';
 
-    const handleBtnPress = () => {
-        console.log('onPress');
-    };
+export const ProductDetails: React.FC = () => {
+    const route = useRoute<RouteProp<MainStackParamList, 'ProductDetails'>>();
+    const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
+
+    const { dataIsLoading, refresh, product } = useGetProduct(route.params.productId);
+
+    useEffect(() => {
+        if (product?.name) {
+            navigation.setOptions({
+                title: product.name,
+            });
+        }
+    }, [navigation, product]);
+
+    const handleBtnPress = () => navigation.navigate('LoginToContinue');
 
     const renderProduct = () => (
         <View style={styles.container}>

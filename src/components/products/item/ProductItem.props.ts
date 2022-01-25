@@ -1,5 +1,5 @@
 import { ProductItemListRenderModel } from '../../../types';
 
-export interface IProductItemProps {
+export type IProductItemProps = {
     item: ProductItemListRenderModel;
-}
+};
