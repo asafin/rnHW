@@ -9,6 +9,7 @@ import { MyCart } from '../../screens/myCart/MyCart';
 import { cartIcon, customScreenOptions } from '../options';
 import { Login } from '../../screens/login/Login';
 import { SignUp } from '../../screens/signUp/SignUp';
+import { ConnectionError } from '../../screens/connectionError/ConnectionError';
 
 export type MainStackParamList = {
     MainDrawer: undefined;
@@ -19,6 +20,7 @@ export type MainStackParamList = {
     Login: undefined;
     SignUp: undefined;
     MyCart: undefined;
+    ConnectionError: undefined;
 };
 
 const MainStack = createStackNavigator<MainStackParamList>();
@@ -48,6 +50,7 @@ const MainStackNavigator = () => {
                 <MainStack.Screen name="LoginToContinue" component={LoginToContinue} />
                 <MainStack.Screen name="Login" component={Login} />
                 <MainStack.Screen name="SignUp" component={SignUp} />
+                <MainStack.Screen name="ConnectionError" component={ConnectionError} />
             </MainStack.Group>
         </MainStack.Navigator>
     );

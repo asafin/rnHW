@@ -1,11 +1,19 @@
-import React from 'react';
+import { useNavigation } from '@react-navigation/native';
+import { StackNavigationProp } from '@react-navigation/stack';
+import React, { useContext } from 'react';
 import { Animated, GestureResponderEvent, Pressable, Text } from 'react-native';
+import { ConnectionContext, IConnectionContext } from '../../context/connection.context';
 import { useButtonAnimation } from '../../hooks/button/useButtonAnimation';
+import { MainStackParamList } from '../../navigation/stack-navigators/MainStackNavigator';
 import { ButtonColors, ButtonProps } from './Button.props';
 import { styles } from './Styles';
 
 export const Button: React.FC<ButtonProps> = (props) => {
-    const { title, onPress, disabled, variant = 'primary', hasError = false } = props;
+    const { title, onPress, disabled, variant = 'primary', hasError = false, checkConnection } = props;
+    const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
+
+    const context = useContext(ConnectionContext);
+    const { isOffline } = context as IConnectionContext;
 
     const getCurrentBgColor = (): ButtonColors => {
         switch (variant) {
@@ -18,11 +26,15 @@ export const Button: React.FC<ButtonProps> = (props) => {
         }
     };
 
-    const { animatedStyles, onPressIn, onPressOut } = useButtonAnimation(getCurrentBgColor(), hasError as boolean);
+    const { animatedStyles, onPressIn, onPressOut } = useButtonAnimation(getCurrentBgColor(), hasError);
 
     const handleOnPress = (event: GestureResponderEvent) => {
         if (!disabled && onPress) {
-            onPress(event);
+            if (checkConnection && isOffline) {
+                navigation.navigate('ConnectionError');
+            } else {
+                onPress(event);
+            }
         }
     };
 

@@ -68,6 +68,7 @@ export const Login: React.FC = () => {
                         style={styles.btn}
                         disabled={setLoginBtnDisabled()}
                         hasError={btnError}
+                        checkConnection={true}
                     />
                     <TouchableOpacity onPress={handleSignUpLinkPress}>
                         <Typography variant="link" style={styles.signUpLink}>

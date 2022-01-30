@@ -6,6 +6,7 @@ export interface ButtonProps extends PressableProps {
     title: string;
     variant?: ButtonVariant;
     hasError?: boolean;
+    checkConnection?: boolean;
 }
 
 export enum ButtonColors {
