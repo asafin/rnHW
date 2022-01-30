@@ -38,15 +38,10 @@ export const SignUp: React.FC = () => {
                     Ecommerce Store
                 </Typography>
                 <View style={styles.form}>
-                    <Input placeholder="Full Name" value={name as string} onChangeText={onChangeName} style={styles.input} />
-                    <Input placeholder="Email" value={email as string} onChangeText={onChangeEmail} style={styles.input} />
-                    <Input placeholder="Password" value={password as string} onChangeText={onChangePassword} style={styles.input} />
-                    <Input
-                        placeholder="Repeat Password"
-                        value={repeatPass as string}
-                        onChangeText={onChangeRepeatPass}
-                        style={styles.input}
-                    />
+                    <Input label="Full Name" value={name as string} onChangeText={onChangeName} style={styles.input} />
+                    <Input label="Email" value={email as string} onChangeText={onChangeEmail} style={styles.input} />
+                    <Input label="Password" value={password as string} onChangeText={onChangePassword} style={styles.input} />
+                    <Input label="Repeat Password" value={repeatPass as string} onChangeText={onChangeRepeatPass} style={styles.input} />
                     <Button
                         title="SIGN UP"
                         onPress={handleSignUpBtnPress}

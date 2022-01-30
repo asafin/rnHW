@@ -41,7 +41,7 @@ export const Login: React.FC = () => {
                 </Typography>
                 <View style={styles.form}>
                     <Input
-                        placeholder="Email Address"
+                        label="Email Address"
                         value={email as string}
                         onChangeText={onChangeEmail}
                         style={styles.input}
@@ -49,7 +49,7 @@ export const Login: React.FC = () => {
                         error={emailError}
                     />
                     <Input
-                        placeholder="Password"
+                        label="Password"
                         value={password as string}
                         onChangeText={onChangePassword}
                         style={styles.input}
