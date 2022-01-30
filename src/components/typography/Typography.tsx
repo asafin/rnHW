@@ -9,10 +9,12 @@ export const Typography: React.FC<TypographyProps> = (props) => {
         <Text
             style={[
                 style,
+                variant === 'h1' && styles.h1,
                 variant === 'h2' && styles.h2,
                 variant === 'p' && styles.p,
                 variant === 'link' && styles.link,
                 variant === 'main' && styles.main,
+                variant === 'error' && styles.error,
             ]}
         >
             {props.children}

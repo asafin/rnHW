@@ -28,4 +28,9 @@ export const styles = StyleSheet.create({
         fontSize: 15,
         lineHeight: 20,
     },
+    error: {
+        color: '#DD6B55',
+        fontSize: 15,
+        lineHeight: 20,
+    },
 });

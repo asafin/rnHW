@@ -11,6 +11,7 @@ export const styles = StyleSheet.create({
         flex: 1,
         alignSelf: 'stretch',
         flexGrow: 8,
+        justifyContent: 'center',
     },
     btnWrapper: {
         flex: 1,
@@ -22,11 +23,22 @@ export const styles = StyleSheet.create({
     },
     title: {
         marginBottom: 80,
+        textAlign: 'center',
     },
     form: {
         marginBottom: 20,
     },
     input: {
+        marginBottom: 20,
+    },
+    btn: {
+        marginBottom: 25,
+    },
+    signUpLink: {
+        textAlign: 'center',
+        marginTop: 25,
+    },
+    forgotPassLink: {
         marginBottom: 20,
     },
 });

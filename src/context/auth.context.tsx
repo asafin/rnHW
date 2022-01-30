@@ -4,12 +4,13 @@ import { authInitialState, authReducer, AuthState } from '../hooks/auth/reducer/
 import { useCreateAuthContext } from '../hooks/auth/useAuthContext';
 import { useRestoreToken } from '../hooks/auth/useRestoreToken';
 import { MainStackParamList } from '../navigation/stack-navigators/MainStackNavigator';
-import { BaseAuthModel } from '../types';
+import { BaseAuthModel, SignUpModel } from '../types';
 
 export interface IAuthContext {
     signIn: (data: BaseAuthModel) => Promise<void>;
-    signOut: (navigation: StackNavigationProp<MainStackParamList, keyof MainStackParamList>) => void;
-    signUp: (data: BaseAuthModel) => Promise<void>;
+    signOut: (navigation: StackNavigationProp<MainStackParamList, keyof MainStackParamList>) => Promise<void>;
+    signUp: (data: SignUpModel) => Promise<void>;
+    clearErrors: () => void;
 }
 
 export interface IAuthContextWithState extends IAuthContext {

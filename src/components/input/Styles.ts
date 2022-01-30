@@ -10,4 +10,7 @@ export const styles = StyleSheet.create({
         fontSize: 15,
         lineHeight: 20,
     },
+    errors: {
+        paddingTop: 5,
+    },
 });
