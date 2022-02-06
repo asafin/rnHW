@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { Animated, Easing, View, Dimensions } from 'react-native';
+import { Animated, Easing, View, useWindowDimensions } from 'react-native';
 import { useDidMount } from '../../hooks/useDidMount';
 import { getRandom } from '../../utils';
 
@@ -21,6 +21,7 @@ export const Fireworks: React.FC = () => {
     });
     const fadingOpacity = useRef(new Animated.Value(1)).current;
     const movingBall = useRef(new Animated.Value(0)).current;
+    const { height, width } = useWindowDimensions();
 
     useDidMount(() => {
         setExplosionSpots();
@@ -31,8 +32,8 @@ export const Fireworks: React.FC = () => {
         const y: number[] = [];
 
         for (let i = 0; i < numberOfExplosions; i++) {
-            x[i] = getRandom(Dimensions.get('window').width);
-            y[i] = getRandom(Dimensions.get('window').height);
+            x[i] = getRandom(width);
+            y[i] = getRandom(height);
         }
         setState({ x, y });
 

@@ -28,7 +28,7 @@ const DrawerNavigator = () => {
             <RootDrawer.Screen name="Main" component={Main} />
             <RootDrawer.Screen name="WishList" component={WishListStackNavigator} />
             <RootDrawer.Screen name="Profile" component={ProfileStackNavigator} />
-            <RootDrawer.Screen name="Fireworks" component={Fireworks} />
+            <RootDrawer.Screen name="Fireworks" component={Fireworks} options={{ unmountOnBlur: true }} />
         </RootDrawer.Navigator>
     );
 };

@@ -3,7 +3,7 @@ import { Animated, Easing } from 'react-native';
 import { ButtonColors } from '../../components/button/Button.props';
 import { useDidUpdate } from '../useDidUpdate';
 
-export const useButtonAnimation = (currentColor: string, hasError: boolean) => {
+export const useButtonAnimation = (currentColor: ButtonColors, hasError: boolean) => {
     const pressAnimation = useRef(new Animated.Value(0)).current;
     const bgAnimation = useRef(new Animated.Value(0)).current;
 
