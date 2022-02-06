@@ -4,6 +4,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import MainStackNavigator from './navigation/stack-navigators/MainStackNavigator';
 
 import { AuthContextProvider } from './context/auth.context';
+import { ConnectionContextProvider } from './context/connection.context';
 
 const styles = StyleSheet.create({
     container: {
@@ -17,9 +18,11 @@ export const App = () => {
         <SafeAreaView style={styles.container}>
             <StatusBar />
             <NavigationContainer>
-                <AuthContextProvider>
-                    <MainStackNavigator />
-                </AuthContextProvider>
+                <ConnectionContextProvider>
+                    <AuthContextProvider>
+                        <MainStackNavigator />
+                    </AuthContextProvider>
+                </ConnectionContextProvider>
             </NavigationContainer>
         </SafeAreaView>
     );

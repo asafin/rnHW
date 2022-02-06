@@ -18,9 +18,15 @@ export const styles = StyleSheet.create({
         textTransform: 'uppercase',
     },
     primary: {
-        backgroundColor: '#008ACE',
+        //backgroundColor: 'rgba(0, 138, 206, 1)',
     },
     secondary: {
-        backgroundColor: '#8F8F8F',
+        //backgroundColor: 'rgba(143, 143, 143, 1)',
+    },
+    warning: {
+        //backgroundColor: 'rgba(221, 107, 85, 1)',
+    },
+    disabled: {
+        opacity: 0.7,
     },
 });
