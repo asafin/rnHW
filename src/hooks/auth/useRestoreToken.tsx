@@ -9,6 +9,7 @@ export const useRestoreToken = (dispatch: React.Dispatch<AuthAction>) => {
 
         try {
             userToken = await AsyncStorage.getItem('userToken');
+            console.log('userToken', userToken);
         } catch (e) {
             // Restoring token failed
             console.log('Restoring token failed', e);
@@ -19,5 +20,9 @@ export const useRestoreToken = (dispatch: React.Dispatch<AuthAction>) => {
         dispatch({ type: AuthActionsTypes.RESTORE_TOKEN, payload: userToken ? userToken : null });
     };
 
-    useDidMount(async () => await bootstrapAsync());
+    useDidMount(() => {
+        (async () => {
+            await bootstrapAsync();
+        })();
+    });
 };

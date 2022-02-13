@@ -7,3 +7,5 @@ export interface RecordModel {
 export interface LookupModel extends RecordModel {
     title: string;
 }
+
+export interface BaseResponseModel extends Record<string, unknown> {}

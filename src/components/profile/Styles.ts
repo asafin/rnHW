@@ -11,11 +11,8 @@ export const styles = StyleSheet.create({
         paddingHorizontal: 20,
         width: '100%',
     },
-    title: {
-        marginBottom: 80,
-        textAlign: 'center',
-    },
     form: {
+        paddingTop: 20,
         marginBottom: 20,
     },
     input: {
@@ -23,9 +20,5 @@ export const styles = StyleSheet.create({
     },
     btn: {
         marginBottom: 25,
-    },
-    signInLink: {
-        textAlign: 'center',
-        marginTop: 25,
     },
 });
