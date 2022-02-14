@@ -21,4 +21,12 @@ export const styles = StyleSheet.create({
     btn: {
         marginBottom: 25,
     },
+    image: {
+        marginBottom: 20,
+        resizeMode: 'stretch',
+        alignItems: 'center',
+        width: 120,
+        height: 120,
+        alignSelf: 'center',
+    },
 });

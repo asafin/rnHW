@@ -9,7 +9,6 @@ export const useRestoreToken = (dispatch: React.Dispatch<AuthAction>) => {
 
         try {
             userToken = await AsyncStorage.getItem('userToken');
-            console.log('userToken', userToken);
         } catch (e) {
             // Restoring token failed
             console.log('Restoring token failed', e);

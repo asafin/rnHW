@@ -1,16 +1,19 @@
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack/lib/typescript/src/types';
 import React from 'react';
-import { ScrollView, View } from 'react-native';
+import { Image, ScrollView, View } from 'react-native';
 import { useProfileForm } from '../../hooks/profile/useProfileForm';
 import { MainStackParamList } from '../../navigation/stack-navigators/MainStackNavigator';
 import { Button } from '../button/Button';
 import { Input } from '../input/Input';
 import { styles } from './Styles';
+import { TouchableOpacity } from 'react-native-gesture-handler';
+import { useGetProfileImage } from '../../hooks/profile/useGetProfileImage';
 
 export const Profile: React.FC = () => {
     const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
     const { dataIsLoading, onChange, formValues, initFormValues, updateBtnDisabled, updateAddress } = useProfileForm();
+    const { fileUri, imageGalleryLaunch } = useGetProfileImage();
 
     const handleSignOutBtnPress = () => navigation.navigate('LogOutConfirmation');
     const handleUpdateBtnPress = () => updateAddress();
@@ -33,6 +36,13 @@ export const Profile: React.FC = () => {
                         onChangeText={onChange('lastname')}
                         style={styles.input}
                     />
+                    <TouchableOpacity onPress={imageGalleryLaunch}>
+                        {fileUri.length ? (
+                            <Image source={{ uri: fileUri }} style={styles.image} />
+                        ) : (
+                            <Image style={styles.image} source={require('../../assets/images/avatar.png')} />
+                        )}
+                    </TouchableOpacity>
                     <Input
                         label="Mobile Number"
                         defaultValue={initFormValues?.phone as string}
