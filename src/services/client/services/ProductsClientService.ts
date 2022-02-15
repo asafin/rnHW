@@ -10,9 +10,13 @@ export class ProductsClientService extends BaseService {
         this.url = url;
     }
 
-    public readonly getProductsList = (page: number, perPage: number): Promise<GetProductsListModelResponse> =>
+    public readonly getProductsList = (page: number, perPage: number, search?: string): Promise<GetProductsListModelResponse> =>
         fetch(
-            `${this.url}products?page=${page}&per_page=${perPage}&include=images&fields%5Bproduct%5D=name%2Cdisplay_price%2Cimages&image_transformation%5Bsize%5D=240x240`,
+            `${
+                this.url
+            }products?page=${page}&per_page=${perPage}&include=images&fields%5Bproduct%5D=name%2Cdisplay_price%2Cimages&image_transformation%5Bsize%5D=240x240${
+                search ? `&filter%5Bname%5D=${search}` : ''
+            }`,
             {
                 method: 'GET',
             }
@@ -26,3 +30,5 @@ export class ProductsClientService extends BaseService {
             }
         ).then((response) => this.parseResponse(response));
 }
+
+//?filter%5Bname%5D=denim

@@ -11,6 +11,7 @@ import { Login } from '../../screens/login/Login';
 import { SignUp } from '../../screens/signUp/SignUp';
 import { ConnectionError } from '../../screens/connectionError/ConnectionError';
 import { LogOutConfirmation } from '../../screens/logOutConfirmation/LogOutConfirmation';
+import { ProductsSearch } from '../../screens/productsSearch/ProductsSearch';
 
 export type MainStackParamList = {
     MainDrawer: undefined;
@@ -23,6 +24,7 @@ export type MainStackParamList = {
     MyCart: undefined;
     ConnectionError: undefined;
     LogOutConfirmation: undefined;
+    Search: undefined;
 };
 
 const MainStack = createStackNavigator<MainStackParamList>();
@@ -41,6 +43,7 @@ const MainStackNavigator = () => {
                     })}
                 />
                 <MainStack.Screen name="MyCart" component={MyCart} options={{ headerTitle: 'My Cart' }} />
+                <MainStack.Screen name="Search" component={ProductsSearch} />
             </MainStack.Group>
             <MainStack.Group
                 screenOptions={() => ({
