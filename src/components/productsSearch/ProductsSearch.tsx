@@ -6,11 +6,11 @@ import { useSearchProductsList } from '../../hooks/products/useSearchProductsLis
 import { styles } from './Styles';
 
 export const ProductsSearch: React.FC = () => {
-    const { dataIsLoading, productsList, setSearch } = useSearchProductsList();
+    const { dataIsLoading, productsList, setSearch, historyItems, deleteHistoryItem } = useSearchProductsList();
     return (
         <ScrollView contentInsetAdjustmentBehavior="automatic" style={styles.main}>
             <View style={styles.container}>
-                <Search setSearch={setSearch} autoFocus={true} />
+                <Search setSearch={setSearch} autoFocus={true} historyItems={historyItems} deleteHistoryItem={deleteHistoryItem} />
                 {!dataIsLoading && <ProductsList productsList={productsList} type="bar" />}
             </View>
         </ScrollView>

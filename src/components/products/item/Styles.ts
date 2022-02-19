@@ -7,6 +7,8 @@ export const styles = StyleSheet.create({
         borderRadius: 5,
         paddingHorizontal: 5,
         paddingVertical: 10,
+        position: 'relative',
+        zIndex: 1,
     },
     containerTile: {
         width: '47%',
