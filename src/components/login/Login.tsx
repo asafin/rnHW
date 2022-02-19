@@ -10,6 +10,8 @@ import { Typography } from '../typography/Typography';
 import { styles } from './Styles';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useHandleLoginFormErrors } from '../../hooks/form/login/useHandleLoginFormErrors';
+import { useLogin } from '../../hooks/auth/useLogin';
+import { useDidUpdate } from '../../hooks/useDidUpdate';
 
 export const Login: React.FC = () => {
     const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
@@ -23,13 +25,17 @@ export const Login: React.FC = () => {
     const handleSignUpLinkPress = () => navigation.navigate('SignUp');
     const handleForgotPassLinkPress = () => navigation.navigate('MainDrawer');
 
+    const { dataIsLoading, login, token } = useLogin();
     const { emailError, passwordError, btnError, clearAllErrors } = useHandleLoginFormErrors();
 
-    const handleLoginBtnPress = () =>
-        signIn({
-            password,
-            email,
-        });
+    const handleLoginBtnPress = async () => await login({ email, password });
+
+    useDidUpdate(() => {
+        if (token) {
+            signIn(token as string);
+            navigation.navigate('MainDrawer');
+        }
+    }, [token]);
 
     const setLoginBtnDisabled = () => !(email.length > 3 && password.length > 3);
 
@@ -66,7 +72,7 @@ export const Login: React.FC = () => {
                         onPress={handleLoginBtnPress}
                         variant="primary"
                         style={styles.btn}
-                        disabled={setLoginBtnDisabled()}
+                        disabled={setLoginBtnDisabled() || dataIsLoading}
                         hasError={btnError}
                         checkConnection={true}
                     />

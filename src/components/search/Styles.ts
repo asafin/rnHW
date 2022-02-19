@@ -34,6 +34,7 @@ export const styles = StyleSheet.create({
         borderColor: '#8F8F8F',
         height: 40,
         borderRadius: 7,
+        position: 'relative',
     },
     image: {
         marginLeft: 10,
@@ -42,5 +43,28 @@ export const styles = StyleSheet.create({
         width: 17,
         resizeMode: 'stretch',
         alignItems: 'center',
+    },
+    contextMenu: {
+        backgroundColor: '#fff',
+        borderWidth: 0.5,
+        borderColor: '#8F8F8F',
+        width: '100%',
+        borderRadius: 7,
+        position: 'absolute',
+        paddingVertical: 10,
+        paddingRight: 10,
+        paddingLeft: 42,
+        top: 45,
+        zIndex: 3,
+        maxHeight: 200,
+    },
+    menuItem: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        width: '100%',
+    },
+    scroll: {
+        height: '100%',
     },
 });

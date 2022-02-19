@@ -80,3 +80,8 @@ export interface ProductItemRenderModel {
     displayPrice: string;
     description: string;
 }
+
+export interface HistoryItem {
+    value: string;
+    time: number;
+}

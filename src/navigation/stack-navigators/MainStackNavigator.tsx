@@ -10,6 +10,8 @@ import { cartIcon, customScreenOptions } from '../options';
 import { Login } from '../../screens/login/Login';
 import { SignUp } from '../../screens/signUp/SignUp';
 import { ConnectionError } from '../../screens/connectionError/ConnectionError';
+import { LogOutConfirmation } from '../../screens/logOutConfirmation/LogOutConfirmation';
+import { ProductsSearch } from '../../screens/productsSearch/ProductsSearch';
 
 export type MainStackParamList = {
     MainDrawer: undefined;
@@ -21,6 +23,8 @@ export type MainStackParamList = {
     SignUp: undefined;
     MyCart: undefined;
     ConnectionError: undefined;
+    LogOutConfirmation: undefined;
+    Search: undefined;
 };
 
 const MainStack = createStackNavigator<MainStackParamList>();
@@ -39,6 +43,7 @@ const MainStackNavigator = () => {
                     })}
                 />
                 <MainStack.Screen name="MyCart" component={MyCart} options={{ headerTitle: 'My Cart' }} />
+                <MainStack.Screen name="Search" component={ProductsSearch} />
             </MainStack.Group>
             <MainStack.Group
                 screenOptions={() => ({
@@ -48,6 +53,7 @@ const MainStackNavigator = () => {
                 <MainStack.Screen name="ProductAdded" component={ProductAdded} />
                 <MainStack.Screen name="SelectColor" component={SelectColor} />
                 <MainStack.Screen name="LoginToContinue" component={LoginToContinue} />
+                <MainStack.Screen name="LogOutConfirmation" component={LogOutConfirmation} />
                 <MainStack.Screen name="Login" component={Login} />
                 <MainStack.Screen name="SignUp" component={SignUp} />
                 <MainStack.Screen name="ConnectionError" component={ConnectionError} />

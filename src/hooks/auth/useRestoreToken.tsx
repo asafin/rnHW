@@ -19,5 +19,9 @@ export const useRestoreToken = (dispatch: React.Dispatch<AuthAction>) => {
         dispatch({ type: AuthActionsTypes.RESTORE_TOKEN, payload: userToken ? userToken : null });
     };
 
-    useDidMount(async () => await bootstrapAsync());
+    useDidMount(() => {
+        (async () => {
+            await bootstrapAsync();
+        })();
+    });
 };

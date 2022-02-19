@@ -2,6 +2,7 @@ import { BASE_URL } from '../services/client/WebClient';
 import {
     GetProductItemModelResponse,
     GetProductsListModelResponse,
+    HistoryItem,
     ProductImageAttributes,
     ProductItemListRenderModel,
     ProductItemRenderModel,
@@ -50,4 +51,15 @@ export const mapProductItemResponseToProductRenderItem = (response: GetProductIt
     };
 
     return productItem;
+};
+
+export const sortHistoryItemsArr = (a: HistoryItem, b: HistoryItem): number => {
+    let idx = 1;
+    if (a.time < b.time) {
+        idx = -1;
+    } else if (a.time === b.time) {
+        idx = 0;
+    }
+
+    return idx;
 };

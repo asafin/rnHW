@@ -33,4 +33,9 @@ export const styles = StyleSheet.create({
         fontSize: 15,
         lineHeight: 20,
     },
+    success: {
+        color: '#6AC238',
+        fontSize: 15,
+        lineHeight: 20,
+    },
 });

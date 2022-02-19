@@ -1,9 +1,4 @@
 import React from 'react';
-import { Text, View } from 'react-native';
-import { styles } from './Styles';
+import { Profile as ProfileComponent } from '../../components/profile/Profile';
 
-export const Profile: React.FC = () => (
-    <View style={styles.container}>
-        <Text>Profile</Text>
-    </View>
-);
+export const Profile: React.FC = () => <ProfileComponent />;

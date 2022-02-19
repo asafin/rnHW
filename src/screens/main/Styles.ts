@@ -10,4 +10,12 @@ export const styles = StyleSheet.create({
         justifyContent: 'center',
         alignItems: 'center',
     },
+    searchWrapper: {
+        width: '100%',
+        position: 'relative',
+        zIndex: 1,
+        height: 70,
+    },
+    search: { zIndex: -1, position: 'absolute', width: '100%' },
+    over: { zIndex: 1, position: 'absolute', width: '100%', height: 70 },
 });
