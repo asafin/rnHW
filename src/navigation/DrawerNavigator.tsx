@@ -7,12 +7,14 @@ import { Main } from '../screens/main/Main';
 import { cartIcon, customScreenOptions } from './options';
 import CustomSidebarMenu from './customSidebar/CustomSidebarMenu';
 import Icon from 'react-native-vector-icons/MaterialIcons';
+import OrderDetailsStackNavigator from './stack-navigators/OrderDetailsStackNavigator';
 
 type RootDrawerParamList = {
     Main: undefined;
     WishList: undefined;
     Profile: undefined;
     Fireworks: undefined;
+    Order: undefined;
 };
 
 const RootDrawer = createDrawerNavigator<RootDrawerParamList>();
@@ -47,6 +49,14 @@ const DrawerNavigator = () => {
                 component={ProfileStackNavigator}
                 options={{
                     drawerIcon: ({ size }) => <Icon name="person" size={size} color={'#008ACE'} />,
+                }}
+            />
+            <RootDrawer.Screen
+                name="Order"
+                component={OrderDetailsStackNavigator}
+                options={{
+                    drawerIcon: ({ size }) => <Icon name="dns" size={size} color={'#008ACE'} />,
+                    title: 'Order Details',
                 }}
             />
         </RootDrawer.Navigator>

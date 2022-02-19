@@ -2,14 +2,13 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
     container: {
-        flex: 1,
         marginBottom: 20,
         backgroundColor: '#fff',
         borderRadius: 5,
         paddingHorizontal: 5,
         paddingVertical: 10,
     },
-    contaiterTile: {
+    containerTile: {
         width: '47%',
         height: 175,
         minWidth: '47%',

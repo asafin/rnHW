@@ -15,6 +15,7 @@ export const Typography: React.FC<TypographyProps> = (props) => {
                 variant === 'link' && styles.link,
                 variant === 'main' && styles.main,
                 variant === 'error' && styles.error,
+                variant === 'success' && styles.success,
             ]}
         >
             {props.children}

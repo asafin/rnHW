@@ -16,7 +16,7 @@ export const ProductItem: React.FC<IProductItemProps> = (props) => {
 
     const navigation = useNavigation<StackNavigationProp<MainStackParamList>>();
 
-    const getBarStyle = () => (type === 'bar' ? styles.containerBar : styles.contaiterTile);
+    const getBarStyle = () => (type === 'bar' ? styles.containerBar : styles.containerTile);
     const getImageWrapperStyle = () => (type === 'tile' ? styles.imageWrapperTile : styles.imageWrapperBar);
 
     return (
